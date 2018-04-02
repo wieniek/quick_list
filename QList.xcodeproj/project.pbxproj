@@ -22,6 +22,8 @@
 		F4E08695201426C100364F7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4E08694201426C100364F7C /* Assets.xcassets */; };
 		F4E08698201426C100364F7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4E08696201426C100364F7C /* LaunchScreen.storyboard */; };
 		F4E48AAB2061840E00A4AE7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4E48AAA2061840E00A4AE7A /* GoogleService-Info.plist */; };
+		F4FD2CD120719BEF00E92853 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD2CD020719BEF00E92853 /* UIViewController.swift */; };
+		F4FD2CD32071A36700E92853 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FD2CD22071A36700E92853 /* PickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		F4E08697201426C100364F7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4E08699201426C100364F7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4E48AAA2061840E00A4AE7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F4FD2CD020719BEF00E92853 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F4FD2CD22071A36700E92853 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		FB7BC83F62CA811DC4490169 /* Pods-QList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QList.release.xcconfig"; path = "Pods/Target Support Files/Pods-QList/Pods-QList.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,8 +102,10 @@
 			children = (
 				F4E0868D201426C100364F7C /* AppDelegate.swift */,
 				F4A163042060585B00B1E34F /* PickerView.swift */,
+				F4FD2CD22071A36700E92853 /* PickerViewController.swift */,
 				F4A16306206058E200B1E34F /* PickerCell.swift */,
 				F4E0868F201426C100364F7C /* ListViewController.swift */,
+				F4FD2CD020719BEF00E92853 /* UIViewController.swift */,
 				F404AD1E20178B1F00F2D9C8 /* ItemCell.swift */,
 				F484FFC6201A6D150085C651 /* DescriptionCell.swift */,
 				F419E55020150EE80037AACD /* Item.swift */,
@@ -260,8 +266,10 @@
 				F4A16307206058E200B1E34F /* PickerCell.swift in Sources */,
 				F404AD1F20178B1F00F2D9C8 /* ItemCell.swift in Sources */,
 				F4E08690201426C100364F7C /* ListViewController.swift in Sources */,
+				F4FD2CD120719BEF00E92853 /* UIViewController.swift in Sources */,
 				F419E55120150EE80037AACD /* Item.swift in Sources */,
 				F4DAD23120606E5D00B8639A /* Category.swift in Sources */,
+				F4FD2CD32071A36700E92853 /* PickerViewController.swift in Sources */,
 				F4E0868E201426C100364F7C /* AppDelegate.swift in Sources */,
 				F4A163052060585B00B1E34F /* PickerView.swift in Sources */,
 				F484FFC8201A6D150085C651 /* DescriptionCell.swift in Sources */,

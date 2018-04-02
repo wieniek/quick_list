@@ -272,9 +272,22 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource, ItemCe
             if let indexPath = tableView.indexPathForRow(at: currentTouchPosition) {
                 print("index Path = \(indexPath.row)")
                 pickerView.selectedItemName = selectedItems[indexPath.row].name
-                pickerView.refresh()
-                pickerView.isHidden = false
+                
+                // new code create new view controller
+                guard let vc = storyboard?.instantiateViewController(withIdentifier: "PickerViewController") else { return }
+                
+                let pickerOriginX = view.bounds.origin.x + 50
+                let pickerOriginY = view.bounds.origin.y + 100
+                let pickerWidth = view.bounds.width - 100
+                let pickerHeight = view.bounds.height - 200
+                
+                let pickerFrame = CGRect(x: pickerOriginX, y: pickerOriginY, width: pickerWidth, height: pickerHeight)
+                self.add(vc, frame: pickerFrame)
                 reloadData()
+                
+                //pickerView.refresh()
+                //pickerView.isHidden = false
+                //reloadData()
             }
         }
     }
