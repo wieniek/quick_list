@@ -73,14 +73,8 @@ class ListViewController: UIViewController, UISearchBarDelegate, DataProviderDel
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var barButton: UIBarButtonItem!
     
-    @IBOutlet weak var pickerView: PickerView!
-    
     @IBAction func barButtonTap(_ sender: UIBarButtonItem) {
         
-        // Hide pickerView if visible
-        if !pickerView.isHidden {
-            pickerView.isHidden = true
-        }
         
         if completedItems.count > 0 {
             dataProvider.deselectAllCompletedItems()
@@ -145,21 +139,8 @@ class ListViewController: UIViewController, UISearchBarDelegate, DataProviderDel
         let colors = [colorPastel1!, colorPastel5!]
         tableView.backgroundColor = GradientColor(.topToBottom, frame: view.frame, colors: colors)
         
-        pickerView.isHidden = true
-        pickerView.dataProvider = dataProvider
-        
-        // Gesture recognizer to track tap outside pickerView
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
-        recognizer.cancelsTouchesInView = false
-        tableView.addGestureRecognizer(recognizer)
     }
     
-    @objc private func tableViewTapped() {
-        if !pickerView.isHidden {
-            pickerView.isHidden = true
-            reloadData()
-        }
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -236,13 +217,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource, ItemCe
             itemCell.delegate = self
             itemCell.itemLabel.text = itemsToDisplay[indexPath.row].name
             itemCell.itemCheckmark.setOn(itemsToDisplay[indexPath.row].isCompleted, animated: true)
-            
-            if pickerView.isHidden {
-                itemCell.itemCheckmark.isEnabled = true
-            } else {
-                itemCell.itemCheckmark.isEnabled = false
-            }
-            
+                        
             itemCell.backgroundColor = cellBackgroundColor
             // customize cell accessory view with a button
             if let icon = itemsToDisplay[indexPath.row].category.icon.image() {
@@ -271,10 +246,12 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource, ItemCe
         if let currentTouchPosition = touch?.location(in: tableView) {
             if let indexPath = tableView.indexPathForRow(at: currentTouchPosition) {
                 print("index Path = \(indexPath.row)")
-                pickerView.selectedItemName = selectedItems[indexPath.row].name
+                //pickerView.selectedItemName = selectedItems[indexPath.row].name
                 
                 // new code create new view controller
-                guard let vc = storyboard?.instantiateViewController(withIdentifier: "PickerViewController") else { return }
+                guard let vc = storyboard?.instantiateViewController(withIdentifier: "PickerViewController") as? PickerViewController else { return }
+                
+                vc.dataProvider = dataProvider
                 
                 let pickerOriginX = view.bounds.origin.x + 50
                 let pickerOriginY = view.bounds.origin.y + 100
@@ -403,11 +380,6 @@ extension ListViewController {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("searchBarTextDidBeginEditing")
-        
-        // Hide pickerView if visible
-        if !pickerView.isHidden {
-            pickerView.isHidden = true
-        }
         
         // show all items when focus goes to searchbar
         searchBarIsInFocus = true

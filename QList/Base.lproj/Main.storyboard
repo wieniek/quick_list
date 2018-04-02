@@ -75,22 +75,12 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4e-kx-TK7" userLabel="PickerView" customClass="PickerView" customModule="QList" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="113" width="200" height="440"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="440" id="DQy-2n-FDy"/>
-                                    <constraint firstAttribute="width" constant="200" id="rbj-fu-hMe"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cHC-zU-Rhx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0HQ-09-9Kh"/>
                             <constraint firstItem="PSY-xa-QyC" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B0E-A8-Y38"/>
                             <constraint firstItem="PSY-xa-QyC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HsL-AO-Eog"/>
-                            <constraint firstItem="f4e-kx-TK7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="O4z-cJ-pQF"/>
-                            <constraint firstItem="f4e-kx-TK7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UNJ-ko-r0g"/>
                             <constraint firstItem="PSY-xa-QyC" firstAttribute="top" secondItem="cHC-zU-Rhx" secondAttribute="bottom" symbolic="YES" id="bVe-mB-iqU"/>
                             <constraint firstItem="PSY-xa-QyC" firstAttribute="top" secondItem="cHC-zU-Rhx" secondAttribute="bottom" symbolic="YES" id="iaO-OB-LXa"/>
                             <constraint firstItem="cHC-zU-Rhx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="llN-PK-Xx7"/>
@@ -102,7 +92,6 @@
                     <navigationItem key="navigationItem" id="3Af-pj-nO7"/>
                     <connections>
                         <outlet property="barButton" destination="1Nf-hE-gBJ" id="ylU-57-Y34"/>
-                        <outlet property="pickerView" destination="f4e-kx-TK7" id="EH7-t2-BsW"/>
                         <outlet property="tableView" destination="cHC-zU-Rhx" id="FrN-dH-aAQ"/>
                         <outlet property="toolBar" destination="PSY-xa-QyC" id="bpF-WJ-gxe"/>
                     </connections>
@@ -122,16 +111,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YiF-Xc-hZN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerCell2" id="oWj-9r-Wq9">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oWj-9r-Wq9" id="Uaq-0F-j5Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

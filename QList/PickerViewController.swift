@@ -10,13 +10,20 @@ import UIKit
 
 class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var dataProvider: DataProvider?
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if let dataProvider = dataProvider {
+            return dataProvider.categories.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pickerCell2", for: indexPath)
-        cell.textLabel?.text = "TEST"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pickerCell") as! PickerCell
+        let category = dataProvider!.categories[indexPath.row]
+        cell.textLabel?.text = category.icon + " - " + category.name
         return cell
     }
     
@@ -44,6 +51,7 @@ class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         pickerTable.sectionIndexTrackingBackgroundColor = .clear
         pickerTable.layer.cornerRadius = 20
         
+        pickerTable.register(PickerCell.self, forCellReuseIdentifier: "pickerCell")
 
         // Do any additional setup after loading the view.
     }
