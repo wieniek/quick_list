@@ -21,7 +21,7 @@ class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pickerCell") as! PickerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell", for: indexPath) as! PickerCell
         let category = dataProvider!.categories[indexPath.row]
         cell.textLabel?.text = category.icon + " - " + category.name
         return cell
@@ -51,7 +51,10 @@ class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         pickerTable.sectionIndexTrackingBackgroundColor = .clear
         pickerTable.layer.cornerRadius = 20
         
-        pickerTable.register(PickerCell.self, forCellReuseIdentifier: "pickerCell")
+        let nib = UINib(nibName: "PickerCell", bundle: nil)
+        pickerTable.register(nib, forCellReuseIdentifier: "PickerCell")
+        
+        //pickerTable.register(PickerCell.self, forCellReuseIdentifier: "pickerCell")
 
         // Do any additional setup after loading the view.
     }
