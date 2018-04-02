@@ -23,7 +23,9 @@ class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell", for: indexPath) as! PickerCell
         let category = dataProvider!.categories[indexPath.row]
-        cell.textLabel?.text = category.icon + " - " + category.name
+        // cell.textLabel?.text = category.icon + " - " + category.name
+        cell.cellLabel.text = category.icon
+        cell.cellDescription.text = category.name
         return cell
     }
     
@@ -44,9 +46,9 @@ class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         pickerTable.rowHeight = 40
         pickerTable.separatorColor = UIColor.black //.lightGray.withAlphaComponent(0.4)
-        pickerTable.bounces = false
-        pickerTable.backgroundColor = nil
-        pickerTable.tableFooterView = UIView()
+        //pickerTable.bounces = false
+        pickerTable.backgroundColor = colorPastel4?.darken(byPercentage: 0.1)
+        //pickerTable.tableFooterView = UIView()
         pickerTable.sectionIndexBackgroundColor = .clear
         pickerTable.sectionIndexTrackingBackgroundColor = .clear
         pickerTable.layer.cornerRadius = 20

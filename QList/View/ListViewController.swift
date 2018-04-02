@@ -254,9 +254,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource, ItemCe
                 vc.dataProvider = dataProvider
                 
                 let pickerOriginX = view.bounds.origin.x + 50
-                let pickerOriginY = view.bounds.origin.y + 100
+                let pickerOriginY = view.bounds.origin.y + 150
                 let pickerWidth = view.bounds.width - 100
-                let pickerHeight = view.bounds.height - 200
+                let pickerHeight = view.bounds.height - 300
                 
                 let pickerFrame = CGRect(x: pickerOriginX, y: pickerOriginY, width: pickerWidth, height: pickerHeight)
                 self.add(vc, frame: pickerFrame)
