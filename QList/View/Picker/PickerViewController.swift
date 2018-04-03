@@ -8,9 +8,47 @@
 
 import UIKit
 
-class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PickerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+    
+    private var tapOutsideRecognizer: UIGestureRecognizer!
     
     var dataProvider: DataProvider?
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (tapOutsideRecognizer == nil) {
+            tapOutsideRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTapBehind))
+            //tapOutsideRecognizer.numberOfTapsRequired = 1
+            tapOutsideRecognizer.cancelsTouchesInView = false
+            tapOutsideRecognizer.delegate = self
+            view.window?.addGestureRecognizer(self.tapOutsideRecognizer)
+        }
+    }
+    
+    @objc func handleTapBehind(sender: UITapGestureRecognizer) {
+        if (sender.state == UIGestureRecognizerState.ended) {
+            let location: CGPoint = sender.location(in: self.view)
+            
+            if (!self.view.point(inside: location, with: nil)) {
+                self.view.window?.removeGestureRecognizer(sender)
+                self.remove()
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if(self.tapOutsideRecognizer != nil) {
+            self.view.window?.removeGestureRecognizer(self.tapOutsideRecognizer)
+            self.tapOutsideRecognizer = nil
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let dataProvider = dataProvider {
